@@ -1,0 +1,14 @@
+INSERT INTO User (UserID, Name) VALUES (1, 'John Doe');
+INSERT INTO Category (CategoryName) VALUES ('Fruit');
+INSERT INTO Item (ItemName, Quantity, Price, PurchaseDate, ExpirationDate, StorageLocation, UserID, CategoryID)
+VALUES ('Apples', 10, 5.99, '2025-02-01', '2025-02-20', 'Fridge', 1, 1);
+INSERT INTO Usage (UsageID, DateUsed, QuantityUsed, ItemID)
+VALUES (1, '2025-02-05', 2, 1);
+INSERT INTO PriceHistory (PriceID, DateRecorded, Price, ItemID)
+VALUES (1, '2025-02-01', 5.99, 1);
+SELECT ItemName, Quantity, Category FROM Item WHERE UserID = 1;
+SELECT DateUsed, QuantityUsed FROM Usage WHERE ItemID = 1;
+UPDATE Item
+SET Quantity = 8
+WHERE ItemID = 1
+DELETE FROM Usage WHERE UsageID = 1

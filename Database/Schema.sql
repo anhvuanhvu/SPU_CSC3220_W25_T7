@@ -1,5 +1,5 @@
 --
--- File generated with SQLiteStudio v3.4.15 on Mon Feb 17 13:55:05 2025
+-- File generated with SQLiteStudio v3.4.15 on Mon Feb 17 14:17:52 2025
 --
 -- Text encoding used: System
 --
@@ -10,9 +10,8 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS Category;
 
 CREATE TABLE IF NOT EXISTS Category (
-    CategoryID INTEGER PRIMARY KEY AUTOINCREMENT,
-    Name       TEXT    NOT NULL,
-    ItemID     INTEGER REFERENCES Item (ItemID) 
+    CategoryID   INTEGER PRIMARY KEY AUTOINCREMENT,
+    CategoryName TEXT    NOT NULL
 )
 STRICT;
 
@@ -29,6 +28,7 @@ CREATE TABLE IF NOT EXISTS Item (
     ExpirationDate  TEXT,
     StorageLocation TEXT,
     UserID          INTEGER REFERENCES User (UserID),
+    CategoryID      INTEGER REFERENCES Category (CategoryID),
     FOREIGN KEY (
         UserID
     )

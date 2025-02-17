@@ -1,5 +1,5 @@
 --
--- File generated with SQLiteStudio v3.4.15 on Mon Feb 17 14:02:40 2025
+-- File generated with SQLiteStudio v3.4.15 on Mon Feb 17 14:18:06 2025
 --
 -- Text encoding used: System
 --
@@ -10,13 +10,13 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS Category;
 
 CREATE TABLE IF NOT EXISTS Category (
-    CategoryID INTEGER PRIMARY KEY AUTOINCREMENT,
-    Name       TEXT    NOT NULL
+    CategoryID   INTEGER PRIMARY KEY AUTOINCREMENT,
+    CategoryName TEXT    NOT NULL
 )
 STRICT;
 
-INSERT INTO Category (CategoryID, Name) VALUES (1, 'Fruit');
-INSERT INTO Category (CategoryID, Name) VALUES (2, 'Fruit');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (1, 'Fruit');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (2, 'Fruit');
 
 -- Table: Item
 DROP TABLE IF EXISTS Item;
@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS Item (
 );
 
 INSERT INTO Item (ItemID, ItemName, Quantity, Price, PurchaseDate, ExpirationDate, StorageLocation, UserID, CategoryID) VALUES (1, 'Apples', 10, 5.99, '2025-02-01', '2025-02-20', 'Fridge', 1, 1);
+INSERT INTO Item (ItemID, ItemName, Quantity, Price, PurchaseDate, ExpirationDate, StorageLocation, UserID, CategoryID) VALUES (2, 'Oranges', 20, 3.99, '2025-02-01', '2025-02-20', 'Fridge', 1, 1);
 
 -- Table: PriceHistory
 DROP TABLE IF EXISTS PriceHistory;
@@ -53,7 +54,6 @@ CREATE TABLE IF NOT EXISTS PriceHistory (
     REFERENCES Item (ItemID) 
 );
 
-INSERT INTO PriceHistory (PriceID, DateRecorded, Price, ItemID) VALUES (1, '2025-02-01', 5.99, 1);
 
 -- Table: Usage
 DROP TABLE IF EXISTS Usage;

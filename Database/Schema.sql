@@ -1,10 +1,42 @@
 --
--- File generated with SQLiteStudio v3.4.15 on Mon Feb 17 14:58:46 2025
+-- File generated with SQLiteStudio v3.4.15 on Mon Feb 17 22:09:08 2025
 --
 -- Text encoding used: System
 --
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
+
+-- Table: BelongsToCategory
+DROP TABLE IF EXISTS BelongsToCategory;
+
+CREATE TABLE IF NOT EXISTS BelongsToCategory (
+    ItemID     INTEGER REFERENCES Item (ItemID) 
+                       NOT NULL,
+    CategoryID ANY     REFERENCES Category (CategoryID) 
+                       NOT NULL,
+    PRIMARY KEY (
+        ItemID,
+        CategoryID
+    )
+)
+STRICT;
+
+
+-- Table: BelongsToUser
+DROP TABLE IF EXISTS BelongsToUser;
+
+CREATE TABLE IF NOT EXISTS BelongsToUser (
+    UserID INTEGER REFERENCES User (UserID) 
+                   NOT NULL,
+    ItemID INTEGER REFERENCES Item (ItemID) 
+                   NOT NULL,
+    PRIMARY KEY (
+        UserID,
+        ItemID
+    )
+)
+STRICT;
+
 
 -- Table: Category
 DROP TABLE IF EXISTS Category;
@@ -23,16 +55,9 @@ CREATE TABLE IF NOT EXISTS Item (
     ItemID          INTEGER PRIMARY KEY AUTOINCREMENT,
     ItemName        TEXT    NOT NULL,
     Quantity        INTEGER NOT NULL,
-    Price           NUMERIC NOT NULL,
     PurchaseDate    TEXT    NOT NULL,
     ExpirationDate  TEXT,
-    StorageLocation TEXT,
-    UserID          INTEGER REFERENCES User (UserID),
-    CategoryID      INTEGER REFERENCES Category (CategoryID),
-    FOREIGN KEY (
-        UserID
-    )
-    REFERENCES User (UserID) 
+    StorageLocation TEXT
 );
 
 

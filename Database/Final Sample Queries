@@ -1,7 +1,7 @@
 INSERT INTO User (Name) VALUES ('John Doe');
 INSERT INTO Category (CategoryName) VALUES ('Fruit');
-INSERT INTO Item (ItemName, Quantity, PurchaseDate, ExpirationDate, StorageLocation)
-VALUES ('Apples', 10, '2025-02-01', '2025-02-20', 'Fridge');
+INSERT INTO Item (ItemName, Quantity, PurchaseDate, ExpirationDate, StorageLocation, UserID)
+VALUES ('Apples', 10, '2025-02-01', '2025-02-20', 'Fridge', 1);
 INSERT INTO Usage (DateUsed, QuantityUsed, ItemID)
 VALUES ('2025-02-05', 2, 1);
 INSERT INTO PriceHistory (DateRecorded, Price, ItemID)
@@ -9,22 +9,24 @@ VALUES ('2025-02-01', 5.99, 1);
 SELECT ItemName, Quantity FROM Item WHERE ItemName = 'Apples';
 INSERT INTO Usage (DateUsed, QuantityUsed, ItemID) VALUES ('2025-02-10', 5, 1);
 SELECT DateUsed, QuantityUsed FROM Usage WHERE ItemID = 1;
+INSERT INTO Item (ItemName, Quantity, PurchaseDate, ExpirationDate, StorageLocation, UserID)
+VALUES ('Oranges', 20, '2025-02-01', '2025-02-20', 'Fridge', 1);
 UPDATE Item
-SET Quantity = 8
-WHERE ItemID = 1
-INSERT INTO Item (ItemName, Quantity, PurchaseDate, ExpirationDate, StorageLocation)
-VALUES ('Oranges', 20, '2025-02-01', '2025-02-20', 'Fridge');
+SET Quantity = 8, StorageLocation = 'Freezer'
+WHERE ExpirationDate = '2025-02-20';
 INSERT INTO Usage (DateUsed, QuantityUsed, ItemID) VALUES ('2025-02-10', 3, 2);
 DELETE FROM Usage WHERE UsageID = 2
-INSERT INTO Item (ItemName, Quantity, PurchaseDate, ExpirationDate, StorageLocation)
-VALUES ('Bananas', 10, '2025-02-01', '2025-02-20', 'Fridge');
+INSERT INTO Item (ItemName, Quantity, PurchaseDate, ExpirationDate, StorageLocation, UserID)
+VALUES ('Bananas', 10, '2025-02-01', '2025-02-20', 'Fridge', 1);
 INSERT INTO BelongsToCategory (ItemID, CategoryID) VALUES (1, 1)
+INSERT INTO BelongsToCategory (ItemID, CategoryID) VALUES (2, 1)
 INSERT INTO BelongsToCategory (ItemID, CategoryID) VALUES (3, 1)
 INSERT INTO Category (CategoryName) VALUES ('Vegetable');
-INSERT INTO Item (ItemName, Quantity, PurchaseDate, ExpirationDate, StorageLocation)
-VALUES ('Carrots', 10, '2025-02-01', '2025-02-20', 'Fridge');
+INSERT INTO Item (ItemName, Quantity, PurchaseDate, ExpirationDate, StorageLocation, UserID)
+VALUES ('Carrots', 10, '2025-02-01', '2025-02-20', 'Fridge', 1);
 INSERT INTO BelongsToCategory (ItemID, CategoryID) VALUES (4, 2);
-SELECT Category.CategoryName
+SELECT Item.ItemName, Category.CategoryName, Item.Quantity
 FROM BelongsToCategory
 JOIN Category on Category.CategoryID = BelongsToCategory.CategoryID
 JOIN Item on BelongsToCategory.ItemID = Item.ItemID
+WHERE CategoryName = 'Fruit'

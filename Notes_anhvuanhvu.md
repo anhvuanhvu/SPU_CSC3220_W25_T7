@@ -8,3 +8,5 @@ Meeting with team members to finalize the final application idea.
 Create and work for ERD draft assignment.
 Create and work for ERD final.
 Create and work for DB Schema and SQL queries draft.
+Work on Draft Wireframe and Navigational Diagram.
+Meeting with team members to discuss the draft.

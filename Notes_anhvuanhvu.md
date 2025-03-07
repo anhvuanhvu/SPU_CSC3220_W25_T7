@@ -10,3 +10,4 @@ Create and work for ERD final.
 Create and work for DB Schema and SQL queries draft.
 Work on Draft Wireframe and Navigational Diagram.
 Meeting with team members to discuss the draft.
+Finish Draft Wireframe and Navigational Diagram.

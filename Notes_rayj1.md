@@ -13,3 +13,5 @@ Further refined the relationships, particularly between Category and Item and It
 Met with team to draft and especially iron out the pains and frustrations and goals and needs of our persona, as well as to flesh out the moodboard.
 
 Worked to add additional detail to the personality, including attributes and further detail about the persona such as her personality and what she likes. Also, brainstormed ways to better illustrate tone of our app through the moodboard.
+
+Drafted the wireframes and ironed out the nav diagram with team, especially focusing on ways to implement a sort of UI hierarchy.

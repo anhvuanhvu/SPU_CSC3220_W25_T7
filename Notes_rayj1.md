@@ -16,4 +16,4 @@ Worked to add additional detail to the personality, including attributes and fur
 
 Drafted the wireframes and ironed out the nav diagram with team, especially focusing on ways to implement a sort of UI hierarchy.
 
-Discussed with team how to implement a bread-crumb control and implemented it in a way that tries to maintain simplicity and consistency.
+Discussed with team how to implement a bread-crumb control for the wireframe and implemented it in a way that tries to maintain simplicity and consistency.
